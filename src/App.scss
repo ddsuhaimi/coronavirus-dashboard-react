@@ -1,0 +1,41 @@
+@import "bulma";
+@import "~bulma-extensions/bulma-switch/src/sass";
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css");
+@import url('http://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css');
+.leaflet-container {
+  height: 400px;
+}
+
+.table-container.country-table{
+  height: 100vh-21vh; 
+  overflow-y: scroll;
+}
+
+@media (max-width: 425px) {
+  .card.middle-map { display: none;}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .content-stat .columns {
+    flex-wrap: wrap;
+  }
+  .dashboard-left {order: 1;}
+  .dashboard-middle {order: 3; width: 100%;}
+  .dashboard-right {order: 2; }
+}
+
+.stat-value {
+  float: right;
+}
+
+footer.ftr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  bottom: 0;
+}
+// debugger 
+// * {
+//   outline: 1px solid red;
+// }
