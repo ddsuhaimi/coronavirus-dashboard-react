@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Navbar() {
+function Navbar() {
   const [isActive, setisActive] = React.useState(false);
   return (
     <nav
@@ -81,3 +81,5 @@ export default function Navbar() {
     </nav>
   );
 }
+
+export default Navbar
