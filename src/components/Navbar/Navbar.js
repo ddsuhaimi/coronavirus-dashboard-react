@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   const [isActive, setisActive] = React.useState(false);
@@ -38,21 +39,21 @@ function Navbar() {
         className={`navbar-menu ${isActive ? "is-active" : ""}`}
       >
         <div className="navbar-start">
-          <a href="/" className="navbar-item">
+          <Link to="/" className="navbar-item">
             Dashboard
-          </a>
-          <a href="/" className="navbar-item">
+          </Link>
+          <Link to="/country" className="navbar-item">
             Country
-          </a>
-          <a href="/" className="navbar-item">
+          </Link>
+          <Link to="/" className="navbar-item">
             FAQ
-          </a>
-          <a href="/" className="navbar-item">
+          </Link>
+          <Link to="/" className="navbar-item">
             About
-          </a>
-          <a href="/" className="navbar-item">
+          </Link>
+          <Link to="/" className="navbar-item">
             Github
-          </a>
+          </Link>
         </div>
 
         <div className="navbar-end ">

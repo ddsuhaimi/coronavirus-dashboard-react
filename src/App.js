@@ -1,9 +1,9 @@
 import React from 'react';
-// import logo from './logo.svg'
 import Navbar from './components/Navbar'
-import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import './App.scss';
 import Home from './scenes/Home';
+import Country from './scenes/Country'
 import Footer from './components/Footer'
 
 
@@ -13,6 +13,7 @@ function App() {
     <Navbar/>
     <Switch>
       <Route exact path='/' component={Home} />
+      <Route exact path='/country' component={Country} />
     </Switch>
     <Footer />
 </Router>
