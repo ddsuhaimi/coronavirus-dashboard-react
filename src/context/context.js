@@ -9,8 +9,10 @@ class CoronaProvider extends Component {
       yesterday:{}
     },
     countries: [],
+    countriesList: [],
     usStates: [],
-    continents: []
+    continents: [],
+    country: {} // country display on Country.js page
   }
 
   componentDidMount = async () => {
@@ -37,18 +39,27 @@ class CoronaProvider extends Component {
       usStates: await usStates.json(),
       continents: await continents.json()
     })
+
+    // set countriesList
+    this.setState({
+      countriesList: this.state.countries.map(country => country.country).sort()
+    })
   }
 
-  prepareCaseCardData = () => {
-    const { today, yesterday } = this.state.all
-    const todayRecovered = today.recovered - yesterday.recovered
-    const todayActiveCases = today.cases - today.deaths - today.recovered
+  getCountryData = (country) => {
+    // ss
+  }
+
+  prepareCaseCardData = (today1, yesterday) => {
+    // const { today, yesterday } = this.state.all
+    const todayRecovered = today1.recovered - yesterday.recovered
+    const todayActiveCases = today1.cases - today1.deaths - today1.recovered
     const yesterdayActiveCases = yesterday.cases - yesterday.deaths - yesterday.recovered
     const tempData = [
-        { cases: today.cases, newCases: today.todayCases, title: "confirmed", color:'info', perc:today.cases/yesterday.cases},
-        { cases: today.deaths, newCases: today.todayDeaths, title: "deaths", color:'danger',perc:today.deaths/yesterday.deaths},
-        { cases: today.recovered, newCases: todayRecovered, title: "recovered", color:'success',perc:today.recovered/yesterday.recovered },
-        { cases: today.cases - today.deaths - today.recovered, newCases: "29", title: "active", color:'warning',perc:todayActiveCases/yesterdayActiveCases},
+        { cases: today1.cases, newCases: today1.todayCases, title: "confirmed", color:'info', perc:today1.cases/yesterday.cases},
+        { cases: today1.deaths, newCases: today1.todayDeaths, title: "deaths", color:'danger',perc:today1.deaths/yesterday.deaths},
+        { cases: today1.recovered, newCases: todayRecovered, title: "recovered", color:'success',perc:today1.recovered/yesterday.recovered },
+        { cases: today1.cases - today1.deaths - today1.recovered, newCases: "29", title: "active", color:'warning',perc:todayActiveCases/yesterdayActiveCases},
       ];
 
     return tempData

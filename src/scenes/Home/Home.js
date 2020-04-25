@@ -13,7 +13,7 @@ export default function Dashboard() {
   } = context;
   const WorldData = prepareTableData();
   const USData = prepareUSStatesTableData();
-  const CaseCardData = prepareCaseCardData();
+  const CaseCardData = prepareCaseCardData(all.today, all.yesterday);
   console.log(USData);
 
   return (

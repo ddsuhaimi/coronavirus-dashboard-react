@@ -42,7 +42,7 @@ function Navbar() {
           <Link to="/" className="navbar-item">
             Dashboard
           </Link>
-          <Link to="/country" className="navbar-item">
+          <Link to="/countries" className="navbar-item">
             Country
           </Link>
           <Link to="/" className="navbar-item">
