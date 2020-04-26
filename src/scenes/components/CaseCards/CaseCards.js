@@ -6,7 +6,7 @@ export function CaseCards(props) {
   const data = props.data
     return (
       <div className="columns">
-        {data && data.map((item) => (
+        { data.map((item) => (
           <div key={item.cases} className="column">
             <CaseCard item={item} />
           </div>

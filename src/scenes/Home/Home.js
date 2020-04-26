@@ -17,7 +17,7 @@ export default function Dashboard() {
   console.log(USData);
 
   return (
-    <div className="container-fluid ">
+    <div className="container-fluid">
       {/* // section case card */}
       <section className="case-card" style={{ marginTop: "1em" }}>
         <CaseCards data={CaseCardData} />

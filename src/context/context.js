@@ -56,10 +56,10 @@ class CoronaProvider extends Component {
     const todayActiveCases = today1.cases - today1.deaths - today1.recovered
     const yesterdayActiveCases = yesterday.cases - yesterday.deaths - yesterday.recovered
     const tempData = [
-        { cases: today1.cases, newCases: today1.todayCases, title: "confirmed", color:'info', perc:today1.cases/yesterday.cases},
-        { cases: today1.deaths, newCases: today1.todayDeaths, title: "deaths", color:'danger',perc:today1.deaths/yesterday.deaths},
-        { cases: today1.recovered, newCases: todayRecovered, title: "recovered", color:'success',perc:today1.recovered/yesterday.recovered },
-        { cases: today1.cases - today1.deaths - today1.recovered, newCases: "29", title: "active", color:'warning',perc:todayActiveCases/yesterdayActiveCases},
+        { cases: today1.cases, newCases: today1.todayCases, title: "confirmed", color:'info', perc: (today1.todayCases)/yesterday.cases},
+        { cases: today1.deaths, newCases: today1.todayDeaths, title: "deaths", color:'danger',perc: (today1.todayDeaths)/yesterday.deaths},
+        { cases: today1.recovered, newCases: todayRecovered, title: "recovered", color:'success',perc: (today1.recovered-yesterday.recovered)/yesterday.recovered },
+        { cases: today1.active, newCases: today1.active-yesterday.active, title: "active", color:'warning',perc: (today1.active-yesterday.active)/yesterday.active},
       ];
 
     return tempData

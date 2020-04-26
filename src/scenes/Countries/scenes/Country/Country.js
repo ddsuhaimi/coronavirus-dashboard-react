@@ -2,12 +2,15 @@ import React, { useContext, useEffect, useState } from "react";
 import { CoronaContext } from "../../../../context/context";
 import CaseCards from "../../../components/CaseCards";
 import TitleHeader from "./components/TitleHeader";
+import LoadingBar from '../../../components/LoadingBar'
+import DetailStatCards from './components/DetailStatCards'
 export default function Country(props) {
   const { prepareCaseCardData, all } = useContext(CoronaContext);
   const [country, setCountry] = useState(props.match.params.country);
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({});
   const [formattedData, setFormattedData] = useState([]);
+  const [arr, setArr] = useState([])
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -36,23 +39,28 @@ export default function Country(props) {
       setFormattedData(result);
 
       setIsLoading(false);
+
+      const arrr = [
+        {title:"Cases per one million", number:data.today.casesPerOneMillion},
+        {title:"Deaths per one million", number:data.today.deathsPerOneMillion},
+        {title:"Tests per one million", number:data.today.testsPerOneMillion},
+      ]
+  
+      setArr(arrr)
     }
+
+    
   }, [data]);
 
-  const Loading = (
-    <>
-      <p>Please wait while we are getting the data</p>
-      <progress class="progress is-small is-primary" max="100">
-        15%
-      </progress>{" "}
-    </>
-  );
 
+  
   return (
     <div className="container-fluid" style={{ marginTop: "1em" }}>
       <TitleHeader country={country} />
-      {isLoading ? Loading : null}
+      {isLoading ? <LoadingBar message="Please wait while we are getting latest data"/> : null}
       <CaseCards data={formattedData} />
+      <DetailStatCards data={arr}/>
+      
     </div>
   );
 }
