@@ -8,7 +8,7 @@ export default function DetailStatCard({data}) {
         <div className="casetype is-uppercase has-text-weight-light">
             {data.title}
           </div>
-          {data.number}
+          <span className={`subtitle is-size-4 has-text-weight-semibold has-text-${data.color}`}>{data.number}</span>
         </span>
       </div>
       

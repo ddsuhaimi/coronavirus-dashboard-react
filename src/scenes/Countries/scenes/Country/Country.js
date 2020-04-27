@@ -4,6 +4,7 @@ import CaseCards from "../../../components/CaseCards";
 import TitleHeader from "./components/TitleHeader";
 import LoadingBar from '../../../components/LoadingBar'
 import DetailStatCards from './components/DetailStatCards'
+import CountryCharts from './components/CountryCharts'
 export default function Country(props) {
   const { prepareCaseCardData, all } = useContext(CoronaContext);
   const [country, setCountry] = useState(props.match.params.country);
@@ -14,7 +15,7 @@ export default function Country(props) {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      let [today, yesterday] = await Promise.all([
+      let [today, yesterday, historical] = await Promise.all([
         (
           await fetch(`https://corona.lmao.ninja/v2/countries/${country}`)
         ).json(),
@@ -23,10 +24,16 @@ export default function Country(props) {
             `https://corona.lmao.ninja/v2/countries/${country}?yesterday=1`
           )
         ).json(),
+        (
+          await fetch(
+            `https://corona.lmao.ninja/v2/historical/${country}?lastdays=all`
+          )
+        ).json(),
       ]);
       setData({
         today: today,
         yesterday: yesterday,
+        historical: historical
       });
     };
 
@@ -41,9 +48,10 @@ export default function Country(props) {
       setIsLoading(false);
 
       const arrr = [
-        {title:"Cases per one million", number:data.today.casesPerOneMillion},
-        {title:"Deaths per one million", number:data.today.deathsPerOneMillion},
-        {title:"Tests per one million", number:data.today.testsPerOneMillion},
+        {title:"Cases per one million", number:data.today.casesPerOneMillion, color: "info"},
+        {title:"Deaths per one million", number:data.today.deathsPerOneMillion, color:"danger"},
+        {title:"Tests per one million", number:data.today.testsPerOneMillion, color:"success"},
+        {title:"Total tests", number:data.today.tests, color: "warning"},
       ]
   
       setArr(arrr)
@@ -60,6 +68,9 @@ export default function Country(props) {
       {isLoading ? <LoadingBar message="Please wait while we are getting latest data"/> : null}
       <CaseCards data={formattedData} />
       <DetailStatCards data={arr}/>
+      <section className="country-chart">
+        <CountryCharts countryData={data}/>
+      </section>
       
     </div>
   );
