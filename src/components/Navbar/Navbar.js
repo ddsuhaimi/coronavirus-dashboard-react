@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
+import logo from "../../assets/logo2.png";
 
 function Navbar() {
   const [isActive, setisActive] = React.useState(false);
@@ -11,15 +12,9 @@ function Navbar() {
     >
       <div className="navbar-brand">
         <a href="/" className="navbar-item">
-          <img
-            alt="s"
-            src="https://bulma.io/images/bulma-logo.png"
-            width="112"
-            height="28"
-          />
+          <img className="brand" src={logo} width="200" height="200" />
         </a>
         <a
-          href="/"
           onClick={() => {
             setisActive(!isActive);
           }}
@@ -45,14 +40,11 @@ function Navbar() {
           <Link to="/countries" className="navbar-item">
             Country
           </Link>
-          <Link to="/" className="navbar-item">
+          {/* <Link to="/" className="navbar-item">
             FAQ
-          </Link>
-          <Link to="/" className="navbar-item">
+          </Link> */}
+          <Link to="/about" className="navbar-item">
             About
-          </Link>
-          <Link to="/" className="navbar-item">
-            Github
           </Link>
         </div>
 
@@ -65,7 +57,34 @@ function Navbar() {
               justifyContent: "center",
             }}
           >
-            <div className="tengah">
+            <a
+              href="https://twitter.com/suhaimi_id?ref_src=twsrc%5Etfw"
+              class="twitter-follow-button"
+              data-show-count="false"
+            >
+              <i className="fab fa-twitter"></i>
+              {"   "} Follow @suhaimi_id
+            </a>
+            <a
+              href="https://ko-fi.com/M4M31NTH2"
+              class="kofi-button"
+            >
+              <i className="fas fa-coffee"></i>
+              {"   "} Buy me a coffee
+            </a>
+            {/* <a className="kofi-button" style={{lineHeight:'0'}}href="https://ko-fi.com/M4M31NTH2" target="_blank">
+              <i className="fas fa-coffee"></i>
+              {"   "} Buy Me a Coffee
+            </a> */}
+            {/* 
+            <a style={{margin:'0 10px', color:'#fff'}}
+            href="https://github.com/dediacc/coronavirus-dashboard-react"
+          >
+            <i className="fab fa-github"></i>
+            {"   "}
+          </a> */}
+            {/* <div className="tengah" style={{marginLeft: '10px'}}>
+              
               <input
                 id="nightSwitch"
                 type="checkbox"
@@ -74,8 +93,8 @@ function Navbar() {
                 // checked="checked"
                 // onClick={e => e.target.checked = !e.target.checked}
               />
-            <label htmlFor="nightSwitch">Night</label>
-            </div>
+              <label htmlFor="nightSwitch">Night</label>
+            </div> */}
           </div>
         </div>
       </div>
@@ -83,4 +102,4 @@ function Navbar() {
   );
 }
 
-export default Navbar
+export default Navbar;

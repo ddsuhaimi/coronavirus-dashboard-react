@@ -38,7 +38,7 @@ export default function Table(props) {
               {/* <td key={Math.random()}>{i+1}</td> */}
               {Object.values(row).map(val => (
                 // <td>{i}</td>
-                <td key={Math.random()}>{val}</td>
+                <td key={Math.random()}>{val === 0 ? "": val }</td>
               ))}
               {/* <td key={Math.random()}>a</td> */}
             </tr>

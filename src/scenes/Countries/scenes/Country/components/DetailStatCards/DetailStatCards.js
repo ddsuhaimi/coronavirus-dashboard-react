@@ -7,7 +7,7 @@ export default function DetailStatCards({data}) {
   return (
     <div className="columns">
      {data.map((a) => (
-       <div className="column">
+       <div key={Math.random()} className="column">
 
      <DetailScatCard data={a}/>
        </div>

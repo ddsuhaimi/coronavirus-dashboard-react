@@ -5,6 +5,7 @@ import './App.scss';
 import Home from './scenes/Home';
 import Footer from './components/Footer'
 import Countries from './scenes/Countries'
+import About from './scenes/About'
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <Switch>
       <Route exact path='/' component={Home} />
       <Route path='/countries' component={Countries} />
+      <Route path='/about' component={About} />
     </Switch>
     <Footer />
 </Router>

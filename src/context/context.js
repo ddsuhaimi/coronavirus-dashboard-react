@@ -44,6 +44,10 @@ class CoronaProvider extends Component {
     this.setState({
       countriesList: this.state.countries.map(country => country.country).sort()
     })
+
+    this.setState({
+      continents: this.state.continents.filter(continent => continent.continent !== " ")
+    })
   }
 
   getCountryData = (country) => {

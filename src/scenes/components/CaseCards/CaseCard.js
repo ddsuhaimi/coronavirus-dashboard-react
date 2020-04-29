@@ -25,7 +25,7 @@ export default function CaseCard(props) {
                 >
                   face
                 </i>
-                {cases}<span style={{marginLeft:'0.5em'}}className="has-text-grey has-text-weight-light">{`(+${newCases})`}</span> 
+                {cases}<span style={{marginLeft:'0.5em'}}className="has-text-grey has-text-weight-light">{newCases > 0 ? `(+${newCases})` : `(${newCases})`}</span> 
               </span><br/>
               <span className="has-text-weight-semibold is-size-6">{perc < 0 ? <i className="fas fa-caret-down"/> : <i className="fas fa-caret-up"/>}{`  ${(100*perc).toFixed(3)}%`}</span><span> than yesterday</span>
             </div>
