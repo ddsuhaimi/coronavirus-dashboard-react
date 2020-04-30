@@ -65,24 +65,14 @@ function Navbar() {
               <i className="fab fa-twitter"></i>
               {"   "} Follow @suhaimi_id
             </a>
-            <a
-              href="https://ko-fi.com/M4M31NTH2"
-              class="kofi-button"
-            >
-              <i className="fas fa-coffee"></i>
-              {"   "} Buy me a coffee
-            </a>
-            {/* <a className="kofi-button" style={{lineHeight:'0'}}href="https://ko-fi.com/M4M31NTH2" target="_blank">
-              <i className="fas fa-coffee"></i>
-              {"   "} Buy Me a Coffee
-            </a> */}
-            {/* 
+            
+           
             <a style={{margin:'0 10px', color:'#fff'}}
             href="https://github.com/dediacc/coronavirus-dashboard-react"
           >
             <i className="fab fa-github"></i>
             {"   "}
-          </a> */}
+          </a>
             {/* <div className="tengah" style={{marginLeft: '10px'}}>
               
               <input
