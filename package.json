@@ -12,13 +12,13 @@
     "chartjs": "^0.3.24",
     "geojson-world-map": "0.0.2",
     "leaflet": "^1.6.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^9.0.0",
     "react": "^16.13.1",
     "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.13.1",
     "react-leaflet": "^2.6.3",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
